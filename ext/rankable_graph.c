@@ -213,6 +213,19 @@ static VALUE rankable_graph_init_copy(VALUE copy, VALUE orig){
   return copy;
 }
 
+static VALUE clear(VALUE self){
+  RNStruct* rn;
+  Data_Get_Struct(self, RNStruct, rn);
+
+  rn->current_available_index = -1;
+  g_hash_table_remove_all(rn->index_to_key);
+  g_hash_table_remove_all(rn->key_to_index);
+  g_ptr_array_set_size(rn->number_out_links, 0);
+  g_ptr_array_set_size(rn->in_links, 0);
+
+  return Qnil;
+}
+
 static VALUE rb_cRankableGraph;
 
 void Init_rankable_graph(){
@@ -221,6 +234,7 @@ void Init_rankable_graph(){
   rb_define_method(rb_cRankableGraph, "initialize", init, 0);
   rb_define_method(rb_cRankableGraph, "initialize_copy", rankable_graph_init_copy, 1);
   rb_define_method(rb_cRankableGraph, "link", link, 2);
+  rb_define_method(rb_cRankableGraph, "clear", clear, 0);
   rb_define_method(rb_cRankableGraph, "rank", rank, 2);
 }
 

@@ -12,6 +12,30 @@ def assert_rank(rankable_graph, expected_rank)
 end
 
 describe RankableGraph do
+  it "should be possible to recalculate the ranks after a new link is added" do
+    rankable_graph = RankableGraph.new
+    rankable_graph.link(0, 1)
+    assert_rank(rankable_graph, { 0 => 35.1, 1 => 64.9 })
+    rankable_graph.link(1, 2)
+    assert_rank(rankable_graph, { 0 => 18.4, 1 => 34.1, 2 => 47.4 })
+  end
+
+  it "should be possible to clear the graph" do
+    rankable_graph = RankableGraph.new
+    rankable_graph.link(0, 1)
+    rankable_graph.link(1, 2)
+    rankable_graph.clear
+    rankable_graph.link(0, 1)
+    assert_rank(rankable_graph, { 0 => 35.1, 1 => 64.9 })
+  end
+
+  it "should not raise an exception when calculating the rank of an empty graph" do
+    rankable_graph = RankableGraph.new
+    lambda do
+      rankable_graph.rank(0.85, 0.0001){|label, rank| raise "This should not be raised!" }
+    end.should_not raise_error
+  end
+
   it "should return correct results when having a dangling node" do
     rankable_graph = RankableGraph.new
     #node 2 is a dangling node because it has no outbound links
