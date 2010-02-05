@@ -1,5 +1,0 @@
-package configuration for glib-2.0
-cflags: -I/opt/local/include/glib-2.0 -I/opt/local/lib/glib-2.0/include -I/opt/local/include  
-ldflags: -L/opt/local/lib
-libs: -lglib-2.0 -lintl -liconv  
-
