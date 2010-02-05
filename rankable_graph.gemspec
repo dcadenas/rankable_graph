@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rankable_graph}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Daniel Cadenas"]
-  s.date = %q{2010-02-01}
+  s.date = %q{2010-02-05}
   s.description = %q{A Ruby Pagerank implementation}
   s.email = %q{dev@cuboxsa.com}
   s.extensions = ["ext/extconf.rb"]
@@ -27,7 +27,6 @@ Gem::Specification.new do |s|
      "benchmark.rb",
      "ext/Makefile",
      "ext/extconf.rb",
-     "ext/mkmf.log",
      "ext/rankable_graph.c",
      "rankable_graph.gemspec",
      "spec/rankable_graph_spec.rb",
