@@ -51,6 +51,23 @@ describe RankableGraph do
     assert_rank(rankable_graph, expected_rank)
   end
 
+  it "should not change the graph when adding the same link many times" do
+    rankable_graph = RankableGraph.new
+    rankable_graph.link(0, 2)
+    rankable_graph.link(0, 2)
+    rankable_graph.link(0, 2)
+    rankable_graph.link(1, 2)
+    rankable_graph.link(1, 2)
+
+    expected_rank = {
+      0 => 21.3,
+      1 => 21.3,
+      2 => 57.4
+    }
+
+    assert_rank(rankable_graph, expected_rank)
+  end
+
   it "should return correct results for a star graph" do
     rankable_graph = RankableGraph.new
     rankable_graph.link(0, 2)
