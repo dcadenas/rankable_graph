@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "benchmark.rb",
-     "ext/Makefile",
      "ext/extconf.rb",
      "ext/rankable_graph.c",
      "rankable_graph.gemspec",
