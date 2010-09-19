@@ -12,7 +12,6 @@ begin
     gem.authors = ["Daniel Cadenas"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.extensions = ["ext/extconf.rb"]
-    gem.required_ruby_version = '>= 1.9'
     gem.requirements << 'glib2, v2.22.2 or greater'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end

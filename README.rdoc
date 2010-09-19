@@ -68,7 +68,6 @@ For more examples please refer to the tests.
 
 == Requirements
 
-* Ruby 1.9
 * {glib2}[http://library.gnome.org/devel/glib/2.22/] >= 2.22.2
 
 == Note on Patches/Pull Requests
