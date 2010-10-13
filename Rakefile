@@ -1,23 +1,22 @@
-require 'rubygems'
-require 'rake'
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "rankable_graph"
-    gem.summary = %Q{A Ruby Pagerank implementation}
-    gem.description = %Q{A Ruby Pagerank implementation}
-    gem.email = "dev@cuboxsa.com"
-    gem.homepage = "http://github.com/cubox/rankable_graph"
-    gem.authors = ["Daniel Cadenas"]
-    gem.add_development_dependency "rspec", ">= 1.2.9"
-    gem.extensions = ["ext/extconf.rb"]
-    gem.requirements << 'glib2, v2.22.2 or greater'
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-  end
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
+spec = Gem::Specification.new do |s|
+  s.extensions = FileList["ext/**/extconf.rb"]
+  s.name = "rankable_graph"
+  s.summary = %Q{A Ruby Pagerank implementation}
+  s.description = %Q{A Ruby Pagerank implementation}
+  s.email = "dev@cuboxsa.com"
+  s.homepage = "http://github.com/cubox/rankable_graph"
+  s.authors = ["Daniel Cadenas"]
+  s.add_development_dependency "rspec", ">= 1.2.9"
+  s.requirements << 'glib2, v2.22.2 or greater'
+  s.version = File.read("VERSION")
 end
+
+require 'rake/extensiontask'
+Rake::GemPackageTask.new(spec) do |pkg|
+end
+
+Rake::ExtensionTask.new('rankable_graph', spec)
+
 
 require 'spec/rake/spectask'
 Spec::Rake::SpecTask.new(:spec) do |spec|
@@ -31,16 +30,6 @@ Spec::Rake::SpecTask.new(:rcov) do |spec|
   spec.rcov = true
 end
 
-task :spec => :check_dependencies
+task :spec => :compile
 
 task :default => :spec
-
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "rankable_graph #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end

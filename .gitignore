@@ -19,9 +19,8 @@ rdoc
 pkg
 
 ## PROJECT::SPECIFIC
-ext/*.bundle
-ext/*.o
-lib/*.bundle
-lib/*.o
-**/*/*.gem
-**/*/*.log
+ext/**/*.bundle
+ext/**/*.o
+lib
+pkg
+tmp
