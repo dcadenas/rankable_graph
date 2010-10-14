@@ -9,6 +9,7 @@ spec = Gem::Specification.new do |s|
   s.add_development_dependency "rspec", ">= 1.2.9"
   s.requirements << 'glib2, v2.22.2 or greater'
   s.version = File.read("VERSION")
+  s.files = `git ls-files`.split
 end
 
 require 'rake/extensiontask'
@@ -17,17 +18,10 @@ end
 
 Rake::ExtensionTask.new('rankable_graph', spec)
 
-
 require 'spec/rake/spectask'
 Spec::Rake::SpecTask.new(:spec) do |spec|
   spec.libs << 'lib' << 'spec'
   spec.spec_files = FileList['spec/**/*_spec.rb']
-end
-
-Spec::Rake::SpecTask.new(:rcov) do |spec|
-  spec.libs << 'lib' << 'spec'
-  spec.pattern = 'spec/**/*_spec.rb'
-  spec.rcov = true
 end
 
 task :spec => :compile
