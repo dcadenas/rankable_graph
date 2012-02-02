@@ -13,15 +13,13 @@ spec = Gem::Specification.new do |s|
 end
 
 require 'rake/extensiontask'
-Rake::GemPackageTask.new(spec) do |pkg|
+Gem::PackageTask.new(spec) do |pkg|
 end
 
 Rake::ExtensionTask.new('rankable_graph', spec)
 
-require 'spec/rake/spectask'
-Spec::Rake::SpecTask.new(:spec) do |spec|
-  spec.libs << 'lib' << 'spec'
-  spec.spec_files = FileList['spec/**/*_spec.rb']
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec) do |spec|
 end
 
 task :spec => :compile
