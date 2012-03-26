@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/cuboxci/rankable_graph.png?branch=master)](http://travis-ci.org/cuboxci/rankable_graph)
+{<img src="https://secure.travis-ci.org/cubox/rankable_graph.png" />}[http://travis-ci.org/cubox/rankable_graph]
 = rankable_graph
 
 A Ruby {PageRank}[http://en.wikipedia.org/wiki/PageRank] like implementation.
