@@ -1,3 +1,4 @@
+version = File.read("VERSION")
 spec = Gem::Specification.new do |s|
   s.extensions = FileList["ext/**/extconf.rb"]
   s.name = "rankable_graph"
@@ -8,12 +9,12 @@ spec = Gem::Specification.new do |s|
   s.authors = ["Daniel Cadenas"]
   s.add_development_dependency "rspec", ">= 1.2.9"
   s.requirements << 'glib2, v2.22.2 or greater'
-  s.version = File.read("VERSION")
+  s.version = version
   s.files = `git ls-files`.split
 end
 
 require 'rake/extensiontask'
-Gem::PackageTask.new(spec) do |pkg|
+Rake::PackageTask.new("rankable_graph", version) do |pkg|
 end
 
 Rake::ExtensionTask.new('rankable_graph', spec)
