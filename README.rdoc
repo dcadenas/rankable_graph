@@ -3,6 +3,8 @@
 
 A Ruby {PageRank}[http://en.wikipedia.org/wiki/PageRank] like implementation.
 
+{<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/PageRanks-Example.svg/596px-PageRanks-Example.svg.png" />}[http://en.wikipedia.org/wiki/PageRank]
+
 == Description
 
 This gem is mostly writen in C with a pretty Ruby wrapper.
