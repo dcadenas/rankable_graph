@@ -16,23 +16,23 @@ those are better processed with a map-reduce distributed solution.
 Usage
 -----
 
-    ```ruby
-    rankable_graph = RankableGraph.new
+```ruby
+rankable_graph = RankableGraph.new
 
-    #First we draw our directed graph using the link method which receives as parameters two identifiers.   
-    #The only restriction for the identifiers is that they should be integers.
-    rankable_graph.link(1234, 4312)
-    rankable_graph.link(9876, 4312)
-    rankable_graph.link(4312, 9876)
-    rankable_graph.link(8888, 4312)
+#First we draw our directed graph using the link method which receives as parameters two identifiers.   
+#The only restriction for the identifiers is that they should be integers.
+rankable_graph.link(1234, 4312)
+rankable_graph.link(9876, 4312)
+rankable_graph.link(4312, 9876)
+rankable_graph.link(8888, 4312)
 
-    probability_of_following_a_link = 0.85 # The bigger the number, less probability we have to teleport to some random link
-    tolerance = 0.0001 # the smaller the number, the more exact the result will be but more CPU cycles will be needed
-  
-    rankable_graph.rank(probability_of_following_a_link, tolerance) do |identifier, rank|
-      puts "Node #{identifier} rank is #{rank}"
-    end
-    ```
+probability_of_following_a_link = 0.85 # The bigger the number, less probability we have to teleport to some random link
+tolerance = 0.0001 # the smaller the number, the more exact the result will be but more CPU cycles will be needed
+
+rankable_graph.rank(probability_of_following_a_link, tolerance) do |identifier, rank|
+puts "Node #{identifier} rank is #{rank}"
+end
+```
 
 Which outputs
 
@@ -46,35 +46,35 @@ This ranks represent the probabilities that a certain node will be visited.
 If you want to calculate the rank of another graph is recommended to call the clear method and reuse the RankableGraph instance as this frees the used memory without relying in the Ruby garbage collector.
 So instead of:
 
-    ```ruby
-    rankable_graph = RankableGraph.new
+```ruby
+rankable_graph = RankableGraph.new
 
-    rankable_graph.link(0, 1)
-    rankable_graph.link(1, 2)
-    rankable_graph.rank(0.85, 0.0001){ |identifier, rank| puts "Node #{identifier} rank for graph1 is #{rank}" }
+rankable_graph.link(0, 1)
+rankable_graph.link(1, 2)
+rankable_graph.rank(0.85, 0.0001){ |identifier, rank| puts "Node #{identifier} rank for graph1 is #{rank}" }
 
-    rankable_graph = RankableGraph.new
+rankable_graph = RankableGraph.new
 
-    rankable_graph.link(0, 1)
-    rankable_graph.link(2, 1)
-    rankable_graph.rank(0.85, 0.0001){ |identifier, rank| puts "Node #{identifier} rank for graph2 is #{rank}" }
-    ```
+rankable_graph.link(0, 1)
+rankable_graph.link(2, 1)
+rankable_graph.rank(0.85, 0.0001){ |identifier, rank| puts "Node #{identifier} rank for graph2 is #{rank}" }
+```
 
 It's better if you do:
 
-    ```ruby
-    rankable_graph = RankableGraph.new
+```ruby
+rankable_graph = RankableGraph.new
 
-    rankable_graph.link(0, 1)
-    rankable_graph.link(1, 2)
-    rankable_graph.rank(0.85, 0.0001){ |identifier, rank| puts "Node #{identifier} rank for graph1 is #{rank}" }
+rankable_graph.link(0, 1)
+rankable_graph.link(1, 2)
+rankable_graph.rank(0.85, 0.0001){ |identifier, rank| puts "Node #{identifier} rank for graph1 is #{rank}" }
 
-    rankable_graph.clear
+rankable_graph.clear
 
-    rankable_graph.link(0, 1)
-    rankable_graph.link(2, 1)
-    rankable_graph.rank(0.85, 0.0001){ |identifier, rank| puts "Node #{identifier} rank for graph2 is #{rank}" }
-    ```
+rankable_graph.link(0, 1)
+rankable_graph.link(2, 1)
+rankable_graph.rank(0.85, 0.0001){ |identifier, rank| puts "Node #{identifier} rank for graph2 is #{rank}" }
+```
 
 For more examples please refer to the tests.
 
