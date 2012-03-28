@@ -83,15 +83,9 @@ Requirements
 
 * [glib2](http://library.gnome.org/devel/glib/2.22/) >= 2.22.2
     
-    In Mac
-    ```bash
-    brew install glib
-    ```
+    In Mac `brew install glib`
 
-    In Linux
-    ```bash
-    sudo apt-get install libglib2.0-dev
-    ```
+    In Linux `sudo apt-get install libglib2.0-dev`
 
 Note on Patches/Pull Requests
 -----------------------------
