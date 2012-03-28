@@ -1,4 +1,4 @@
-[![](https://secure.travis-ci.org/cubox/rankable_graph.png)](http://travis-ci.org/cubox/rankable_graph)
+[![Build Status](https://secure.travis-ci.org/cubox/rankable_graph.png?branch=master)](http://travis-ci.org/cubox/rankable_graph)
 rankable_graph
 ==============
 
@@ -81,7 +81,7 @@ For more examples please refer to the tests.
 Requirements
 ------------
 
-* {glib2}[http://library.gnome.org/devel/glib/2.22/] >= 2.22.2
+* [glib2](http://library.gnome.org/devel/glib/2.22/) >= 2.22.2
     
     In Mac
     ```bash
