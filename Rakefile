@@ -10,13 +10,16 @@ spec = Gem::Specification.new do |s|
   s.add_development_dependency "rspec", ">= 1.2.9"
   s.requirements << 'glib2, v2.22.2 or greater'
   s.version = version
-  s.files = `git ls-files`.split
+  s.files = `git ls-files`.split("\n")
+end
+
+require 'rubygems/package_task'
+Gem::PackageTask.new(spec) do |pkg|
+  pkg.need_zip = false
+  pkg.need_tar = false
 end
 
 require 'rake/extensiontask'
-Rake::PackageTask.new("rankable_graph", version) do |pkg|
-end
-
 Rake::ExtensionTask.new('rankable_graph', spec)
 
 require 'rspec/core/rake_task'
@@ -26,3 +29,4 @@ end
 task :spec => :compile
 
 task :default => :spec
+

@@ -12,6 +12,14 @@ def assert_rank(rankable_graph, expected_rank)
 end
 
 describe RankableGraph do
+  it "should enter the block" do
+    rankable_graph = RankableGraph.new
+    entered = false
+    rankable_graph.link(0, 1)
+    rankable_graph.rank(0.85, 0.0001){|_, _|  entered = true }
+    entered.should be_true
+  end
+
   it "should be possible to recalculate the ranks after a new link is added" do
     rankable_graph = RankableGraph.new
     rankable_graph.link(0, 1)

@@ -160,7 +160,7 @@ static gfloat* step(gfloat s, gfloat t_over_size, gfloat *p, RNStruct *rn, GArra
 }
 
 static VALUE rank(VALUE self, VALUE s, VALUE tolerance){
-  if(rb_block_given_p() == Qtrue){
+  if(rb_block_given_p()){
     RNStruct* rn;
     Data_Get_Struct(self, RNStruct, rn);
 
