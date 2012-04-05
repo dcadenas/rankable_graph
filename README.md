@@ -85,7 +85,7 @@ Requirements
     
     In Mac `brew install glib`
 
-    In Linux `sudo apt-get install libglib2.0-dev`
+    In a Linux based on Debian `sudo apt-get install libglib2.0-dev`
 
 Note on Patches/Pull Requests
 -----------------------------
