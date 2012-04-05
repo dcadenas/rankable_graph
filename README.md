@@ -101,4 +101,6 @@ Note on Patches/Pull Requests
 Copyright
 ---------
 
+Author: Daniel Cadenas
+
 Copyright (c) 2012 [Cubox](http://cuboxlabs.com). See LICENSE for details.
