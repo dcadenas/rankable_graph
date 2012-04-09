@@ -76,7 +76,7 @@ rankable_graph.link(2, 1)
 rankable_graph.rank(0.85, 0.0001){ |identifier, rank| puts "Node #{identifier} rank for graph2 is #{rank}" }
 ```
 
-For more examples please refer to the tests.
+For more examples please refer to the [tests](https://github.com/dcadenas/rankable_graph/blob/master/spec/rankable_graph_spec.rb).
 
 Requirements
 ------------
