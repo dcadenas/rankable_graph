@@ -1,4 +1,7 @@
 [![Build Status](https://secure.travis-ci.org/cubox/rankable_graph.png?branch=master)](http://travis-ci.org/cubox/rankable_graph)
+
+[![endorse](http://api.coderwall.com/dcadenas/endorsecount.png)](http://coderwall.com/dcadenas)
+
 rankable_graph
 ==============
 
