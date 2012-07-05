@@ -1,5 +1,5 @@
 [![Build Status](https://secure.travis-ci.org/cubox/rankable_graph.png?branch=master)](http://travis-ci.org/cubox/rankable_graph)
-
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/dcadenas/rankable_graph)
 [![endorse](http://api.coderwall.com/dcadenas/endorsecount.png)](http://coderwall.com/dcadenas)
 
 rankable_graph
